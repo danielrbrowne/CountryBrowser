@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,13 @@
 		577BD7B7266FB6A400D891D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577BD7B6266FB6A400D891D9 /* Preview Assets.xcassets */; };
 		577BD7C2266FB6A400D891D9 /* CountryBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7C1266FB6A400D891D9 /* CountryBrowserTests.swift */; };
 		577BD7CD266FB6A400D891D9 /* CountryBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7CC266FB6A400D891D9 /* CountryBrowserUITests.swift */; };
+		577BD7DE266FB75000D891D9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7DD266FB75000D891D9 /* Country.swift */; };
+		577BD7E1266FB76700D891D9 /* APIota in Frameworks */ = {isa = PBXBuildFile; productRef = 577BD7E0266FB76700D891D9 /* APIota */; };
+		577BD7E4266FB7C100D891D9 /* CountriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7E3266FB7C100D891D9 /* CountriesAPIClient.swift */; };
+		577BD7E6266FB7D100D891D9 /* CountriesListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7E5266FB7D100D891D9 /* CountriesListEndpoint.swift */; };
+		577BD7E8266FB7E800D891D9 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7E7266FB7E800D891D9 /* CountryViewModel.swift */; };
+		577BD7EA266FB80500D891D9 /* CountriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7E9266FB80500D891D9 /* CountriesListView.swift */; };
+		577BD7EC266FB81400D891D9 /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD7EB266FB81400D891D9 /* CountryDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,12 @@
 		577BD7C8266FB6A400D891D9 /* CountryBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountryBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		577BD7CC266FB6A400D891D9 /* CountryBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryBrowserUITests.swift; sourceTree = "<group>"; };
 		577BD7CE266FB6A400D891D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		577BD7DD266FB75000D891D9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		577BD7E3266FB7C100D891D9 /* CountriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAPIClient.swift; sourceTree = "<group>"; };
+		577BD7E5266FB7D100D891D9 /* CountriesListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListEndpoint.swift; sourceTree = "<group>"; };
+		577BD7E7266FB7E800D891D9 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
+		577BD7E9266FB80500D891D9 /* CountriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListView.swift; sourceTree = "<group>"; };
+		577BD7EB266FB81400D891D9 /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577BD7E1266FB76700D891D9 /* APIota in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +109,11 @@
 		577BD7AE266FB6A300D891D9 /* CountryBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				577BD7DA266FB6F000D891D9 /* Model */,
+				577BD7E2266FB77F00D891D9 /* Networking */,
+				577BD7DC266FB70200D891D9 /* View Model */,
+				577BD7DB266FB6F600D891D9 /* View */,
 				577BD7AF266FB6A300D891D9 /* CountryBrowserApp.swift */,
-				577BD7B1266FB6A300D891D9 /* ContentView.swift */,
 				577BD7B3266FB6A400D891D9 /* Assets.xcassets */,
 				577BD7B8266FB6A400D891D9 /* Info.plist */,
 				577BD7B5266FB6A400D891D9 /* Preview Content */,
@@ -130,6 +147,41 @@
 			path = CountryBrowserUITests;
 			sourceTree = "<group>";
 		};
+		577BD7DA266FB6F000D891D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				577BD7DD266FB75000D891D9 /* Country.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		577BD7DB266FB6F600D891D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				577BD7B1266FB6A300D891D9 /* ContentView.swift */,
+				577BD7E9266FB80500D891D9 /* CountriesListView.swift */,
+				577BD7EB266FB81400D891D9 /* CountryDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		577BD7DC266FB70200D891D9 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				577BD7E7266FB7E800D891D9 /* CountryViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		577BD7E2266FB77F00D891D9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				577BD7E3266FB7C100D891D9 /* CountriesAPIClient.swift */,
+				577BD7E5266FB7D100D891D9 /* CountriesListEndpoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +198,9 @@
 			dependencies = (
 			);
 			name = CountryBrowser;
+			packageProductDependencies = (
+				577BD7E0266FB76700D891D9 /* APIota */,
+			);
 			productName = CountryBrowser;
 			productReference = 577BD7AC266FB6A300D891D9 /* CountryBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +272,9 @@
 				Base,
 			);
 			mainGroup = 577BD7A3266FB6A300D891D9;
+			packageReferences = (
+				577BD7DF266FB76700D891D9 /* XCRemoteSwiftPackageReference "APIota" */,
+			);
 			productRefGroup = 577BD7AD266FB6A300D891D9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +317,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577BD7E4266FB7C100D891D9 /* CountriesAPIClient.swift in Sources */,
 				577BD7B2266FB6A300D891D9 /* ContentView.swift in Sources */,
+				577BD7EA266FB80500D891D9 /* CountriesListView.swift in Sources */,
+				577BD7DE266FB75000D891D9 /* Country.swift in Sources */,
+				577BD7EC266FB81400D891D9 /* CountryDetailView.swift in Sources */,
+				577BD7E8266FB7E800D891D9 /* CountryViewModel.swift in Sources */,
+				577BD7E6266FB7D100D891D9 /* CountriesListEndpoint.swift in Sources */,
 				577BD7B0266FB6A300D891D9 /* CountryBrowserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +638,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		577BD7DF266FB76700D891D9 /* XCRemoteSwiftPackageReference "APIota" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielrbrowne/APIota";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		577BD7E0266FB76700D891D9 /* APIota */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 577BD7DF266FB76700D891D9 /* XCRemoteSwiftPackageReference "APIota" */;
+			productName = APIota;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 577BD7A4266FB6A300D891D9 /* Project object */;
 }

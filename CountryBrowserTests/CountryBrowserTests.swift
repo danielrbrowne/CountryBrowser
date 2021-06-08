@@ -1,10 +1,3 @@
-//
-//  CountryBrowserTests.swift
-//  CountryBrowserTests
-//
-//  Created by Daniel Browne on 08/06/2021.
-//
-
 import XCTest
 @testable import CountryBrowser
 

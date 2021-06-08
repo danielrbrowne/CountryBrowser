@@ -1,10 +1,3 @@
-//
-//  CountryBrowserUITests.swift
-//  CountryBrowserUITests
-//
-//  Created by Daniel Browne on 08/06/2021.
-//
-
 import XCTest
 
 class CountryBrowserUITests: XCTestCase {
