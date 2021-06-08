@@ -15,21 +15,40 @@ class CountryBrowserUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testCountryDetailView() throws {
+
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.tables.cells.element(boundBy: 0).tap()
+
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryNameLabel").element.label, "Afghanistan")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryCapitalLabel").element.label, "Capital: Kabul")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryPopulationLabel").element.label, "Population: 27,657,145")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryLocationLabel").element.label, "Location: 33.000000, 65.000000")
+
+        app.navigationBars["Details"].buttons["Countries List"].tap()
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testSortButton() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.navigationBars["Countries List"]/*@START_MENU_TOKEN@*/.buttons["SortButton"]/*[[".buttons[\"Sort Z - A\"]",".buttons[\"SortButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables.cells.element(boundBy: 1).tap()
+
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryNameLabel").element.label, "Zimbabwe")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryCapitalLabel").element.label, "Capital: Harare")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryPopulationLabel").element.label, "Population: 14,240,168")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryLocationLabel").element.label, "Location: -20.000000, 30.000000")
+
+        app.navigationBars["Details"].buttons["Countries List"].tap()
+        app.navigationBars["Countries List"]/*@START_MENU_TOKEN@*/.buttons["SortButton"]/*[[".buttons[\"Sort Z - A\"]",".buttons[\"SortButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables.cells.element(boundBy: 0).tap()
+
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryNameLabel").element.label, "Afghanistan")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryCapitalLabel").element.label, "Capital: Kabul")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryPopulationLabel").element.label, "Population: 27,657,145")
+        XCTAssertEqual(app.staticTexts.matching(identifier: "CountryLocationLabel").element.label, "Location: 33.000000, 65.000000")
     }
 }

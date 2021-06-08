@@ -4,7 +4,7 @@ import Foundation
 struct Country: Decodable, Identifiable {
 
     /// A set of GPS coordinates.
-    struct Location: Decodable {
+    struct Location: Decodable, Equatable {
         let latitude: Double
         let longitude: Double
 

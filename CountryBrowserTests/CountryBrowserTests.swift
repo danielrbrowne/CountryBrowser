@@ -11,16 +11,17 @@ class CountryBrowserTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testDecodingJSONToCountryModel() throws {
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+        let decodedResponse = try TestObjects.jsonDecoder.decode([Country].self,
+                                                                 from: TestObjects.validCountriesAPIResponseJSON)
 
+        XCTAssertEqual(decodedResponse.count, 1)
+
+        XCTAssertEqual(decodedResponse.first!.name, "Afghanistan")
+        XCTAssertEqual(decodedResponse.first!.capital, "Kabul")
+        XCTAssertEqual(decodedResponse.first!.population, 27657145)
+        XCTAssertEqual(decodedResponse.first!.location, Country.Location(latitude: 33.0,
+                                                                         longitude: 65.0))
+    }
 }

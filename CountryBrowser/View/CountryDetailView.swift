@@ -11,11 +11,15 @@ struct CountryDetailView: View {
                     Text(selectedCountry!.name)
                         .fontWeight(.bold)
                         .padding(.bottom, 20)
-                    Text("Captial: \(selectedCountry!.capital)")
+                        .accessibility(identifier: "CountryNameLabel")
+                    Text("Capital: \(selectedCountry!.capital)")
                         .padding(.bottom, 10)
+                        .accessibility(identifier: "CountryCapitalLabel")
                     Text("Population: \(selectedCountry!.population)")
                         .padding(.bottom, 10)
+                        .accessibility(identifier: "CountryPopulationLabel")
                     Text("Location: \(selectedCountry!.location.latitude), \(selectedCountry!.location.longitude)")
+                        .accessibility(identifier: "CountryLocationLabel")
                 }.navigationBarTitle(Text("Details"))
             } else {
                 VStack {

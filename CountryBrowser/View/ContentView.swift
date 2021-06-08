@@ -16,7 +16,8 @@ struct ContentView: View {
                     }
                     ) {
                         Text("Refresh")
-                    },
+                    }
+                    .accessibility(identifier: "RefreshButton"),
                     trailing: Button(
                         action: {
                             withAnimation {
@@ -30,6 +31,7 @@ struct ContentView: View {
                             Text("Sort A - Z")
                         }
                     }
+                    .accessibility(identifier: "SortButton")
             )
             CountryDetailView()
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
